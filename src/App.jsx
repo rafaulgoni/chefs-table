@@ -62,7 +62,7 @@ function App() {
             <div className='lg:mt-0 mt-5'>
               <div className="w-full bg-base-100 shadow-xl lg:p-5 p-2 rounded-2xl">
                     <div className="">
-                    <h2 className="font-bold text-xl text-center">Want to cook:</h2>
+                    <h2 className="font-bold text-xl text-center">Want to cook:{cook.length}</h2>
                         <hr/>
                         <div className="flex justify-around lg:w-96 font-bold">
                             <p>Name</p>
