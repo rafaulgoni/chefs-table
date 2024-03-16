@@ -3,7 +3,9 @@ import { IoTime } from "react-icons/io5";
 
 
 
-const Card = ({ foods }) => {
+
+const Card = ({ foods, handleCook }) => {
+
     return (
         <div>
             <div className="card lg:w-96 bg-base-100 shadow-xl">
@@ -29,7 +31,7 @@ const Card = ({ foods }) => {
                         <p className="flex"><GiCelebrationFire></GiCelebrationFire><samp className="ml-1"> {foods.calories}</samp></p>
                     </div>
                     <div>
-                        <button className="btn bg-[#0BE58A] rounded-full">Want to Cook</button>
+                        <button onClick={()=>handleCook(foods)} className="btn bg-[#0BE58A] rounded-full">Want to Cook</button>
                     </div>
                 </div>
                 </div>
