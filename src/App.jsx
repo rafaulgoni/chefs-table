@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const [foods, setFoods] = useState([])
   const [cook, setCook] = useState([])
+  const [card, setCard] = useState([])
 
   useEffect(() => {
     fetch("FakeData.json")
@@ -32,6 +33,9 @@ function App() {
   const handlePrepar = (id)=>{
     const newFood = cook.filter(item=> item.recipe_id != id)
     setCook(newFood)
+
+    card.map(item => item.recipe_id != id.recipe_id)
+    setCard([...cook])
   }
 
   return (
@@ -54,7 +58,7 @@ function App() {
         <div className='grid lg:col-span-8'>
             <div className='lg:grid grid-cols-2 space-y-5'>
               {
-                foods.map(fc =><Card handleCook={handleCook} foods = {fc}></Card>)
+                foods.map(fc =><Card handleCook={handleCook} handlePrepar={handlePrepar} foods = {fc}></Card>)
               }
             </div>
         </div>
@@ -80,21 +84,25 @@ function App() {
                         </div>
                           ))
                         }
-                        <h2 className="text-center font-bold text-xl">Currently cooking:</h2>
+                        <h2 className="text-center font-bold text-xl">Currently cooking:{card.length}</h2>
                         <hr />
                         <div className="flex justify-between font-bold">
                             <p>Name</p>
                             <p>Time</p>
                             <p>Calories</p>
                         </div>
-                        <div className="flex justify-between bg-gray-200 items-center rounded-xl p-2">
-                            <p>N</p>
-                            <p>T</p>
-                            <p>C</p>
-                        </div>
-                        <div className="font-bold">
-                            <h1>Total Time = </h1>
-                            <h1>Total Calories =</h1>
+                        {
+                          card.map((items) =>(
+                              <div className="flex justify-between bg-gray-200 items-center rounded-xl p-2 ">
+                                <p>{items.recipe_name}</p>
+                                <p>{items.preparing_time}</p>
+                                <p>{items.calories}</p>
+                              </div>
+                           ))
+                          }
+                        <div className="font-bold text-center items-end">
+                            <h1>Total Time ={card.map(item =>(item.preparing_time))} </h1>
+                            <h1>Total Calories ={card.map(item =>(item.calories))} </h1>
                         </div>
                     </div>
                 </div>

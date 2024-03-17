@@ -16,8 +16,10 @@ const Header = () => {
                     <li><a>About</a></li>
                     <li><a>Search</a></li>
                 </ul>
-                </div>
-                <a className="btn btn-ghost font-bold text-xl lg:text-2xl">Recipe Calories</a>
+            </div>
+                <img className=' w-14 lg:w-20' src={'https://i.ibb.co/S6BzZfK/logohero-removebg-preview.png'} alt="" />
+                <a className="font-bold text-xl lg:text-2xl flex">
+                    <span className='text-red-700'>HOT</span>FOOD</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
